@@ -1,0 +1,9 @@
+login:async(req,res)=>{
+    const {username,email,password}=req.body
+
+    checking=await Users.findOne(email)
+
+    if(checking){
+
+    }
+}
