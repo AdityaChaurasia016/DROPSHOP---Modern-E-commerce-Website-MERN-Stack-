@@ -12,7 +12,7 @@ const App=()=>{
   return(
     <Router>
     <DataProvider> 
-      <CartProvider>
+      <CartProvider>  
     <div className=''>
       <Header/>
       <Sidebar/>

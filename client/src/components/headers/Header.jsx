@@ -115,12 +115,7 @@ const Header = () => {
                 <MdKeyboardArrowUp />
               </span>
             </button>
-            <div className="absolute bg-black shadow-lg p-4 space-y-3 transform scale-95 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100">
-              {/* <Link to="/product1" className="block text-white hover:text-gray-700">Nike</Link>
-              <Link to="/product2" className="block text-white hover:text-gray-700">Adidas</Link>
-              <Link to="/product3" className="block text-white hover:text-gray-700">Puma</Link>
-              <Link to="/product3" className="block text-white hover:text-gray-700">US POLO</Link>
-              <Link to="/product3" className="block text-white hover:text-gray-700">Woodland</Link> */}
+            <div className="absolute bg-black shadow-lg p-4 space-y-3 transform scale-95 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100 z-50">
               <Link to={`/company/Nike`} className="block text-white hover:text-gray-700">Nike</Link>
               <Link to={`/company/Adidas`}className="block text-white hover:text-gray-700">Adidas</Link>
               <Link to={`/company/Puma`}className="block text-white hover:text-gray-700">Puma</Link>

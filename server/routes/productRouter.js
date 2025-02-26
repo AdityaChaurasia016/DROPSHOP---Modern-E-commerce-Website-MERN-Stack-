@@ -16,7 +16,7 @@ router.route('/products/:id')
 router.route('/search')
 .get(productSearch.getProduct)
 
-router.route('/company/:brand')
+router.route('/company')
 .get(productSearch.getBrandProduct)
 
 // router.get('/search', async (req, res) => {
