@@ -5,6 +5,7 @@ const router=require('express').Router()
 
 router.post('/register', userCtrl.register)
 router.post('/login', userCtrl.login)
+router.post('/adminlogin',userCtrl.adminlogin)
 router.get('/logout', userCtrl.logout)
 router.post('/refresh_token', userCtrl.refreshtoken)
 router.get('/infor',auth,userCtrl.getUser)

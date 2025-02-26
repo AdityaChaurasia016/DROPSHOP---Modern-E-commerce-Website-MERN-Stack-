@@ -45,6 +45,9 @@ app.use('/user',require('./routes/useRouter'))
 app.use('/user',require('./routes/upload'))
 app.use('/api',require('./routes/categoryRoutes'))
 app.use('/api',require('./routes/productRouter'))
+app.use('/modify',require('./crud/crudrouter'))
+app.use('/cart', require('./cart/cartcontrol'))
+
 
 
 // Connecting to MongoDB
@@ -54,4 +57,3 @@ const URI =process.env.MONGODB_URL;
 mongoose.connect(URI,{  
 }).then(()=>{console.log("MongoDB Connected")    
 }).catch(err=>{console.log(err)})
-

@@ -27,11 +27,11 @@ const productSchema = new mongoose.Schema({
     },
     images:{
         type:Object,
-        required:true
+        required:false
     },
     category:{
         type:String,
-        required:true
+        required:false
     },
     checked:{
         type:Boolean,

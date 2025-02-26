@@ -1,36 +1,150 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+
+// const ProductList = ({ product }) => {
+//   return (
+//     <div className='w-full bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg'>
+//       {/* Product Image */}
+//       {product.images && product.images.url ? (
+//         <div className='w-full h-[300px] relative'>
+//           <img
+//             src={product.images.url}
+//             className="w-full h-full object-cover transition-transform duration-500 transform hover:scale-110"
+//             alt="Product"
+//           />
+//         </div>
+//       ) : (
+//         <div className='w-full h-[300px] bg-gray-300 flex items-center justify-center text-white'>
+//           No Image Available
+//         </div>
+//       )}
+
+//       {/* Product Details */}
+//       <div className='p-6 space-y-4'>
+//         <h2 className='font-bold text-2xl text-black break-words'>{product.title}</h2>
+//         <span className='text-lg font-semibold text-gray-900'>₹{product.price}</span>
+//       </div>
+
+//       {/* Action Buttons */}
+//       <div className='p-4 flex justify-between bg-white'>
+//         <Link
+//           to={`cart/`}
+//           className='py-3 px-6 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-700 transition'
+//         >
+//           Buy Now
+//         </Link>
+//         <Link
+//           to={`detail/${product._id}`}
+//           className='py-3 px-6 text-black border-2 border-black rounded-md text-sm font-semibold hover:bg-gray-200 transition'
+//         >
+//           View Now
+//         </Link>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProductList;
 
 
-const ProductList = ({product}) => {
-  console.log(product)
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+
+// const ProductList = ({ product }) => {
+//   return (
+//     <div className='w-full h-[520px] bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg flex flex-col'>
+      
+//       {/* Product Image */}
+//       {product.images && product.images.url ? (
+//         <div className='w-full h-[280px] relative'>
+//           <img
+//             src={product.images.url}
+//             className="w-full h-full object-cover transition-transform duration-500 transform hover:scale-110"
+//             alt="Product"
+//           />
+//         </div>
+//       ) : (
+//         <div className='w-full h-[280px] bg-gray-300 flex items-center justify-center text-white'>
+//           No Image Available
+//         </div>
+//       )}
+
+//       {/* Product Details */}
+//       <div className='p-4 flex-grow'>
+//         <h2 className='font-bold text-xl text-black break-words'>{product.title}</h2>
+//         <span className='text-lg font-semibold text-gray-900 block mt-2'>₹{product.price}</span>
+//       </div>
+
+//       {/* Action Buttons */}
+//       <div className='p-4 flex justify-between bg-white mt-auto'>
+//         <Link
+//           to={`cart/`}
+//           className='py-3 px-6 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-700 transition'
+//         >
+//           Buy Now
+//         </Link>
+//         <Link
+//           to={`detail/${product._id}`}
+//           className='py-3 px-6 text-black border-2 border-black rounded-md text-sm font-semibold hover:bg-gray-200 transition'
+//         >
+//           View Now
+//         </Link>
+//       </div>
+
+//     </div>
+//   );
+// };
+
+// export default ProductList;
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const ProductList = ({ product }) => {
   return (
-    <div className=' p-12 w-1/3'>
-    <div className='product_card border border-blue-300'>
-       {product.images && product.images.url ? (
-        <div className='w-[250px] flex items-center justify-center h-[300px] bg-blue-500 '>
-        <img src={product.images.url} className=" w-[150px] h-auto" alt="Image" />
+    <div className='w-full h-[500px] bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg flex flex-col'>
+      
+      {/* Product Image (Increased height) */}
+      {product.images && product.images.url ? (
+        <div className='w-full h-[320px] relative'>
+          <img
+            src={product.images.url}
+            className="w-full h-full object-cover transition-transform duration-500 transform hover:scale-110"
+            alt="Product"
+          />
         </div>
       ) : (
-        <div className='w-[250px] flex items-center justify-center h-[300px] bg-blue-500 '></div>
+        <div className='w-full h-[320px] bg-gray-300 flex items-center justify-center text-white'>
+          No Image Available
+        </div>
       )}
-       <div className='product_box'>
-        <h2 title={product.title}>{product.title}</h2>
-        <span>${product.price}</span>
-        <p>${product.description}</p>
-       </div>
 
-       <div className='row-btn flex space-x-4'>
-        <Link id='#btn_buy' to={`cart/`} className='py-3 px-2 text-center transition duration-300 border hover:bg-white hover:text-black hover:border-blue-500 bg-blue-800 text-white'>
-        Buy Now
-        </Link>
-        <Link id='#btn_view' to={`detail/${product._id}`} className='py-3 px-2 text-center transition duration-300 border hover:bg-gray-800 hover:text-white'>
-        View Now
-        </Link>
-       </div>
-    </div>
-    </div>
-  )
-}
+      {/* Product Details */}
+      <div className='p-3 flex-grow flex flex-col'>
+        <h2 className='font-bold text-xl text-black break-words mb-1'>{product.title}</h2>
+        <span className='text-base font-semibold text-gray-900 mb-2'>₹{product.price}</span>
+      </div>
 
-export default ProductList
+      {/* Action Buttons */}
+      <div className='px-4 pb-4 flex space-x-8 bg-white'>
+        <Link
+          to={`cart/`}
+          className='py-4 px-6 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-700 transition'
+        >
+          Buy Now
+        </Link>
+        <Link
+          to={`detail/${product._id}`}
+          className='py-4 px-6 text-black border-2 border-black rounded-md text-sm font-semibold hover:bg-gray-200 transition'
+        >
+          View Now
+        </Link>
+      </div>
+
+    </div>
+  );
+};
+
+export default ProductList;

@@ -47,7 +47,7 @@ class APIfeatures{
 
     pagination(){
         const page = this.queryString.page * 1 || 1;
-        const limit = this.queryString.limit * 1 || 9;
+        const limit = this.queryString.limit * 1 || 0;
         const skip = (page-1) * limit;
 
         this.query = this.query.skip(skip).limit(limit);
@@ -59,20 +59,53 @@ class APIfeatures{
 
 
 const productCtrl={
-    getProducts: async(req,res)=>{
-        try{
-            const features=new APIfeatures(Products.find(),req.query)
-            features.filtering()
-            features.sorting()
-            features.pagination()
-            const products=await features.query
-            // res.json({result:products.length})
-            res.json({products:products})
-        }
-        catch(error){
-            return res.status(500).json({msg:error.message})
-        }
-    },
+    // getProducts: async(req,res)=>{
+    //     try{
+    //         const features=new APIfeatures(Products.find(),req.query)
+    //         features.filtering()
+    //         features.sorting()
+    //         features.pagination()
+    //         const products=await features.query
+    //         //res.json({result:products.length})
+    //         res.json({products:products})
+    //     }
+    //     catch(error){
+    //         return res.status(500).json({msg:error.message})
+    //     }
+    // },
+        // getProducts: async(req,res)=>{
+        //     try{
+        //     const totalCount = await Products.countDocuments();
+        //     const products = await Products.aggregate([{$sample: {size: totalCount}}]);
+        //     res.json({products});
+        //     }   
+        //     catch(error){
+        //         return res.status(500).json({msg: error.message});
+        //     }
+        // },
+
+        getProducts: async (req, res) => {
+            try {
+                const { sort } = req.query; // Get sort value from query params
+                let query = Products.aggregate();
+        
+                // Randomize order if no sorting is applied
+                if (!sort) {
+                    const totalCount = await Products.countDocuments();
+                    query = query.append({ $sample: { size: totalCount } });
+                } else {
+                    // Sorting by price
+                    const sortOrder = sort === 'price' ? { price: 1 } : { price: -1 };
+                    query = query.sort(sortOrder);
+                }
+        
+                const products = await query.exec();
+                res.json({ products });
+            } catch (error) {
+                return res.status(500).json({ msg: error.message });
+            }
+        },
+        
     createProducts: async(req,res)=>{
         try{
             const {product_id,title,price,description,content,images,category}=req.body
